@@ -1,6 +1,5 @@
 package br.edu.unifio.ecommerce.entidades;
 
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -9,22 +8,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Setter
-@Getter
-public class Cliente {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+@Entity 
+@Setter 
+@Getter 
+public class Pedido {
+    @Id 
+    @GeneratedValue (strategy =  GenerationType.IDENTITY)
     private Integer id;
 
-    private String nome;
+    private LocalDateTime data;
 
-    private String email;
+    private String status;
 
-    private String telefone;
+    private BigDecimal valorTotal;
+
+    @OneToOne  
+    private Cliente cliente;
 
     
 }
